@@ -1,0 +1,85 @@
+package HTML::FormFu::Validator::Imager::Size;
+
+use strict;
+use warnings;
+use base 'HTML::FormFu::Validator';
+
+use Scalar::Util qw/ blessed /;
+use Carp qw/ croak /;
+
+__PACKAGE__->mk_accessors(qw/ width height pixels /);
+
+sub validate_value {
+    my ( $self, $value ) = @_;
+    
+    return 1 if !defined $value || $value eq "";
+
+    croak "not an Imager object"
+        unless blessed($value) && $value->isa('Imager');
+    
+    my $width  = $value->getwidth;
+    my $height = $value->getheight;
+    
+    if ( my $max = $self->pixels ) {
+        return if $width > $max || $height > $max;
+    }
+    
+    if ( my $max = $self->width ) {
+        return if $width > $max;
+    }
+    
+    if ( my $max = $self->height ) {
+        return if $height > $max;
+    }
+    
+    return 1;
+}
+
+1;
+
+__END__
+
+=head1 NAME
+
+HTML::FormFu::Validator::Imager::Size
+
+=head1 SYNOPSIS
+
+    ---
+    elements:
+      - type: file
+        name: photo
+        inflators:
+          - type: Imager
+        validators:
+          - type: 'Imager::Size'
+            pixels: 200
+
+=head1 METHODS
+
+=head2 pixels
+
+The maximum allowed pixel dimension of either the width or height.
+
+=head2 width
+
+The maximum allowed width in pixels.
+
+=head2 heigth
+
+The maximum allowed height in pixels.
+
+=head1 SEE ALSO
+
+L<HTML::FormFu::Imager>, L<HTML::FormFu>
+
+=head1 AUTHOR
+
+Carl Franks
+
+=head1 LICENSE
+
+This library is free software, you can redistribute it and/or modify it under
+the same terms as Perl itself.
+
+=cut
