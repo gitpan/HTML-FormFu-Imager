@@ -1,18 +1,21 @@
---- 
-abstract: Imager.pm helpers for HTML::FormFu file uploads
-author: Carl Franks
+---
+abstract: 'Imager.pm helpers for HTML::FormFu file uploads'
+author:
+  - 'Carl Franks'
 distribution_type: module
-generated_by: Module::Install version 0.67
+generated_by: 'Module::Install version 0.77'
 license: perl
-meta-spec: 
-  url: http://module-build.sourceforge.net/META-spec-v1.3.html
-  version: 1.3
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
 name: HTML-FormFu-Imager
-no_index: 
-  directory: 
+no_index:
+  directory:
     - inc
     - t
-requires: 
+requires:
   HTML::FormFu: 0
   Imager: 0
-version: 0.01001
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.03006
