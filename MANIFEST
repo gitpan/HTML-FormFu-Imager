@@ -1,20 +1,14 @@
 Changes
-inc/Module/Install.pm
-inc/Module/Install/Base.pm
-inc/Module/Install/Can.pm
-inc/Module/Install/Fetch.pm
-inc/Module/Install/Makefile.pm
-inc/Module/Install/Metadata.pm
-inc/Module/Install/Win32.pm
-inc/Module/Install/WriteAll.pm
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+dist.ini
 lib/HTML/FormFu/Imager.pm
 lib/HTML/FormFu/Inflator/Imager.pm
 lib/HTML/FormFu/Transformer/Imager.pm
 lib/HTML/FormFu/Validator/Imager/Size.pm
-Makefile.PL
-MANIFEST			This list of files
-META.yml
-README
 t/1x1.gif
 t/post.t
 t/post.txt

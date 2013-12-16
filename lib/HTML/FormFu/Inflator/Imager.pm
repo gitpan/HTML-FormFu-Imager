@@ -1,8 +1,9 @@
 package HTML::FormFu::Inflator::Imager;
-
-use strict;
-use warnings;
-use base 'HTML::FormFu::Inflator';
+{
+  $HTML::FormFu::Inflator::Imager::VERSION = '1.00';
+}
+use Moose;
+extends 'HTML::FormFu::Inflator';
 
 use Imager;
 use Scalar::Util qw/ blessed /;
@@ -23,6 +24,8 @@ sub inflator {
     
     return $img;
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 
